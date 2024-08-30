@@ -43,3 +43,22 @@ class Fighter:
         damage = self.weapon.attack()
         monster.take_damage(damage)
 
+class Monsters(ABC):
+    def __init__(self, name, health):
+        self.name = name
+        self.health = health
+
+    def take_damage(self, damage):
+        self.health -= damage
+        print(f"{self.name} получил {damage} урона. Осталось жизней: {self.health}")
+        if self.health <= 0:
+            print(f"{self.name} побежден!")
+
+class Monster(Monsters):
+    def __init__(self, health=2):  # По умолчанию у монстра 2 жизни
+        super().__init__("Монстр", health)
+
+class Boss(Monsters):
+    def __init__(self):
+        super().__init__("Босс", 10)  # У босса 10 жизней
+
