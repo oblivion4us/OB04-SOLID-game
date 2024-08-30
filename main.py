@@ -62,3 +62,18 @@ class Boss(Monsters):
     def __init__(self):
         super().__init__("Босс", 10)  # У босса 10 жизней
 
+fighter1 = Fighter(Sword())
+monster1 = Monster()
+boss1 = Boss()
+monster3 = Monster(health=5)
+
+fighter1.attack(monster1)
+fighter1.change_weapon("Sabre")
+fighter1.attack(monster3)
+fighter1.attack(monster3)
+
+fighter1.attack(boss1)
+fighter1.attack(boss1)
+fighter1.attack(boss1)
+fighter1.change_weapon("Bow")
+fighter1.attack(boss1)
